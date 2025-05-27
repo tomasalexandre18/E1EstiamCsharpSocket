@@ -62,7 +62,8 @@ static class Server {
     public static string HashPassword(string password)
     {
         // sha256 hash the password
-        return SHA256.HashData(System.Text.Encoding.UTF8.GetBytes(password)).ToString()!;
+        return SHA256.HashData(System.Text.Encoding.UTF8.GetBytes(password))
+            .Aggregate("", (current, b) => current + b.ToString("x2"));
     }
 
     private static async Task GestionConnect(TcpListener server)
