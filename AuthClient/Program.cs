@@ -205,6 +205,7 @@ class Program
             Console.WriteLine("Failed to send message. No response from server.");
             return;
         }
+        
         if (response.code == 200)
         {
             Console.WriteLine("Message sent successfully!");
